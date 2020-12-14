@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3D646D51-275E-4FF2-874E-BB04CA67677E}</ProjectGuid>
+    <ProjectGuid>{F075F0E5-FF6A-4626-850F-A2717FD17FEB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GoldBadgeCafeProject_Console</RootNamespace>
-    <AssemblyName>GoldBadgeCafeProject_Console</AssemblyName>
+    <RootNamespace>_02_Claims_Console_Repo_Mark</RootNamespace>
+    <AssemblyName>_02_Claims_Console_Repo_Mark</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,17 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KomodoCafe.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GoldBadgeProject_Cafe\GoldBadgeProject_Repo.csproj">
-      <Project>{5D46027D-A9C3-41D1-8C4D-20E27C6A570B}</Project>
-      <Name>GoldBadgeProject_Repo</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

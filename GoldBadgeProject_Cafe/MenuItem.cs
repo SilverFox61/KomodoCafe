@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoldBadgeChallengeProject
+namespace Komodo_Cafe_Repo
 {
     public class MenuItem
     {

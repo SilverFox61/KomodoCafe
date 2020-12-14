@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoldBadgeChallengeProject
+namespace Komodo_Cafe_Repo
 {
     public class MenuRepository
     {
@@ -22,8 +22,7 @@ namespace GoldBadgeChallengeProject
         //Read
         public List<MenuItem> MenuItemsList() => _listOfMenuItems;
 
-        //Helper methods
-        private MenuItem GetMenuItemsBy(int MenuNumber)
+        public MenuItem GetMenuItemsBy(int MenuNumber)
         {
             foreach (MenuItem item in _listOfMenuItems)
             {
@@ -36,7 +35,7 @@ namespace GoldBadgeChallengeProject
             return null;
         }
 
-        private void DeleteMenuItemsBy(int MenuNumber)
+        public void DeleteMenuItemsBy(int MenuNumber)
         {
             foreach (MenuItem item in _listOfMenuItems)
             {
