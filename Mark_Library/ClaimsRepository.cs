@@ -25,7 +25,7 @@ namespace Komodo_Claims_Repo
 
             Claim claim;
 
-            string strFormat = "\nNo valid claims exist!";
+            string stringFormat = "\n No valid claims exist.;
 
             if ( _listOfClaims.Count >= 1)
             {
@@ -33,7 +33,7 @@ namespace Komodo_Claims_Repo
 
                 // Format next claim
 
-                strFormat = "\nClaimID: " + claim.Id +
+                stringFormat = "\nClaimID: " + claim.Id +
                             "\nType: " + claim.Type +
                             "\nDescription: " + claim.Description +
                             "\nAmount: " + claim.Amount +
@@ -42,7 +42,7 @@ namespace Komodo_Claims_Repo
                             "\nIsValid: " + claim.IsValid;
             }
 
-            return strFormat;
+            return stringFormat;
         }
 
         public Claim GetNextClaim()
@@ -75,7 +75,7 @@ namespace Komodo_Claims_Repo
         {
             // Local Variables
 
-            string strFormat = "";
+            string stringFormat = "";
 
             if (_listOfClaims.Count >= 1)
             {
@@ -83,13 +83,13 @@ namespace Komodo_Claims_Repo
 
                 foreach (Claim claim in _listOfClaims)
                 {
-                    strFormat += claim.ToString() + "\n";
+                    stringFormat += claim.ToString() + "\n";
                 }
             }
             else
-                strFormat = "\nNo claims exist!";
+                stringFormat = "\nNo claims exist.";
 
-            return strFormat;
+            return stringFormat;
         }
     }
 }

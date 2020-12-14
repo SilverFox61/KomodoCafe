@@ -1,5 +1,4 @@
-﻿using Komodo_Claims_Repo;
-using System;
+﻿using System;
 
 namespace Komodo_Claims_App
 {
@@ -30,7 +29,7 @@ namespace Komodo_Claims_App
             Console.WriteLine(message);
         }
 
-        public static Claim CreateNewClaim()
+        public static Claim CreateNewClaim(string stringDateOFClaim, string stringDateOfIncident)
         {
             // Local Variables
 
@@ -60,11 +59,11 @@ namespace Komodo_Claims_App
             description = RequestStringFromUser("Enter claim description: ");
             amount = RequestDecimalFromUser("Enter claim amount: ");
 
-            strDOI = RequestStringFromUser("Enter date of incident (exp: 12/1/2020): ");
-            strDOC = RequestStringFromUser("Enter date of claim (exp: Wed 12/2/2020): ");
+            stringDateOfIncident = RequestStringFromUser("Enter date of incident (exp: 12/1/2020): ");
+            stringDateOFClaim = RequestStringFromUser("Enter date of claim (exp: Wed 12/2/2020): ");
 
-            dateOfIncident = DateTime.Parse(strDOI);
-            dateOfClaim = DateTime.Parse(strDOC);
+            dateOfIncident = DateTime.Parse(stringDateOfIncident);
+            dateOfClaim = DateTime.Parse(stringDateOFClaim);
 
             newClaim = new Claim(id, type, description, amount, dateOfIncident, dateOfClaim );
 

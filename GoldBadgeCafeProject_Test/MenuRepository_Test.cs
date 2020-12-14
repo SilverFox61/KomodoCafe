@@ -11,16 +11,15 @@ namespace Komodo_Console_App_Test
         [TestMethod]
         public void TestMenuRepositoryConstructor()
         {
-            MenuRepository mr = new MenuRepository();
-
-            List<MenuItem> list = mr.MenuItemsList();
+            MenuRepository MenuRepository = new MenuRepository();
+            List<MenuItem> list = MenuRepository.MenuItemsList();
 
             Assert.AreEqual(0, list.Count, 0, "After constructor size was NOT zero!");
         }
 
         public void TestAddingMenuItem()
         { 
-            MenuItem newMenuItem = new MenuItem(1, "Ham Meal", "Great!", "Pig part", 5);
+            MenuItem newMenuItem = new MenuItem(1, "Hamburger Meal", "Great!", "Pig part", 5);
 
             MenuRepository MenuItemsList = new MenuRepository();
 
@@ -30,11 +29,11 @@ namespace Komodo_Console_App_Test
             string ingredients = newMenuItem.Ingredients;
             Decimal price = newMenuItem.Price;
 
-            MenuRepository mr = new MenuRepository();
+            MenuRepository MenuRepository = new MenuRepository();
 
-            mr.AddMenuItemsToList(newMenuItem);
+            MenuRepository.AddMenuItemsToList(newMenuItem);
 
-            List<MenuItem> list = mr.MenuItemsList();
+            List<MenuItem> list = MenuRepository.MenuItemsList();
 
             Assert.AreEqual(1, list.Count, 0, "After adding 1 menu item, size was NOT 1!");
         }

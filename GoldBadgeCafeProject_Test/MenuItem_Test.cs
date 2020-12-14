@@ -10,7 +10,7 @@ namespace Komodo_Console_App_Test
         [TestMethod]
         public void TestMenuItemGetters()
         {
-            MenuItem newMenuItem = new MenuItem(1, "Ham Meal", "Great!", "Pig part", 5);
+            MenuItem newMenuItem = new MenuItem(1, "Hamburger Meal", "Great!", "Pig part", 5);
 
             int menuNumber = newMenuItem.MenuNumber;
             string menuName = newMenuItem.MealName;
@@ -19,7 +19,7 @@ namespace Komodo_Console_App_Test
             Decimal price = newMenuItem.Price;
 
             Assert.AreEqual(1, menuNumber, 0, "Menu number not set correctly!");
-            Assert.AreEqual("Ham Meal", menuName, "", "Menu name not set correctly!");
+            Assert.AreEqual("Hamburger Meal", menuName, "", "Menu name not set correctly!");
             Assert.AreEqual("Great!", description, "", "Menu description not set correctly!");
             Assert.AreEqual("Pig part", ingredients, "", "Menu ingredients not set correctly!");
             Assert.AreEqual(new Decimal(5), price, "", "Menu price not set correctly!");

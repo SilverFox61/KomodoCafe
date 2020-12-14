@@ -6,6 +6,8 @@ namespace Komodo_Claims_App
 {
     class KomodoClaims
     {
+        private static string stringFormat;
+
         static void Main()
         {
             // Local Variables
@@ -38,7 +40,7 @@ namespace Komodo_Claims_App
 
                         if (strFormat.Length > 30)
                         {
-                            UI.DisplayConsoleMessage(strFormat);
+                            UI.DisplayConsoleMessage(stringFormat);
 
                             userResponse = UI.RequestStringFromUser("\nDo you want to deal with this claim now (y/n)? ");
 
@@ -46,7 +48,7 @@ namespace Komodo_Claims_App
                                 listOfClaims.RemoveNextClaim();
                         }
                         else
-                            UI.DisplayConsoleMessage(strFormat);
+                            UI.DisplayConsoleMessage(stringFormat);
 
                         break;
 
