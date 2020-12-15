@@ -52,12 +52,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GoldBadgeProject_Cafe\01_Cafe_Console_Repo.csproj">
-      <Project>{5D46027D-A9C3-41D1-8C4D-20E27C6A570B}</Project>
-      <Name>01_Cafe_Console_Repo</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mark_Library\02_Claims_Console_Repo.csproj">
-      <Project>{BCA69985-3117-407D-9AA9-FA33746B899D}</Project>
+      <Project>{bca69985-3117-407d-9aa9-fa33746b899d}</Project>
       <Name>02_Claims_Console_Repo</Name>
     </ProjectReference>
   </ItemGroup>

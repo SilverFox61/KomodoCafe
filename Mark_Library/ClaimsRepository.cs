@@ -10,11 +10,11 @@ namespace Komodo_Claims_Repo
     {
         // Class Variables
 
-        List<Claim> _listOfClaims = new List<Claim>();
+        List<Claims> _listOfClaims = new List<Claims>();
 
         // Class Methods
   
-        public void AddClaimsToList(Claim claim)
+        public void AddClaimsToList(Claims claim)
         {
             _listOfClaims.Add(claim);
         }
@@ -23,9 +23,9 @@ namespace Komodo_Claims_Repo
         {
             // Local Variables
 
-            Claim claim;
+            Claims claim;
 
-            string stringFormat = "\n No valid claims exist.;
+            string stringFormat = "\n No valid claims exist.";
 
             if ( _listOfClaims.Count >= 1)
             {
@@ -45,7 +45,7 @@ namespace Komodo_Claims_Repo
             return stringFormat;
         }
 
-        public Claim GetNextClaim()
+        public Claims GetNextClaim()
         {
             return _listOfClaims[0];
         }
@@ -56,11 +56,11 @@ namespace Komodo_Claims_Repo
         }
 
         //Read
-        public List<Claim> ClaimsList() => _listOfClaims;
+        public List<Claims> ClaimsList() => _listOfClaims;
 
-        public Claim GetClaimsBy(int Id)
+        public Claims GetClaimsBy(int Id)
         {
-            foreach (Claim claim in _listOfClaims)
+            foreach (Claims claim in _listOfClaims)
             {
                 if (claim.Id == Id)
                 {
@@ -71,25 +71,31 @@ namespace Komodo_Claims_Repo
             return null;
         }
 
-        public string DisplayClaims()
+        public void DisplayClaims()
         {
-            // Local Variables
-
-            string stringFormat = "";
 
             if (_listOfClaims.Count >= 1)
             {
                 Console.WriteLine("ClaimID Type Description Amount DateofAccident DateOfClaim isValid");
 
-                foreach (Claim claim in _listOfClaims)
+                foreach (Claims claim in _listOfClaims)
                 {
-                    stringFormat += claim.ToString() + "\n";
+                    Console.WriteLine($"{claim.Id}\n" +
+                        $"{claim.Type}\n" +
+                        $"{claim.Description}\n" +
+                        $"{claim.Amount}\n" +
+                        $"{claim.DateOfIncident}\n" +
+                        $"{claim.DateOfClaim}\n" +
+                        $"{claim.IsValid}\n");
                 }
+                Console.WriteLine("Press any key to continue");
+                Console.ReadLine();
             }
             else
-                stringFormat = "\nNo claims exist.";
+                Console.WriteLine("No claims exist.");
+                Console.WriteLine("Press any key to continue");
+                Console.ReadLine();
 
-            return stringFormat;
         }
     }
 }

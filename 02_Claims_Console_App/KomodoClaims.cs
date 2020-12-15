@@ -12,8 +12,8 @@ namespace Komodo_Claims_App
         {
             // Local Variables
 
-            ClaimsRepository listOfClaims = new ClaimsRepository();
-            Claim newClaim;
+            Komodo_Claims_Repo.ClaimsRepository listOfClaims = new Komodo_Claims_Repo.ClaimsRepository();
+            Claims newClaim;
             string userResponse;
             int menuOption;
 
@@ -32,7 +32,7 @@ namespace Komodo_Claims_App
                 switch (menuOption)
                 {
                     case 1:     // See all claims
-                        UI.DisplayConsoleMessage(listOfClaims.DisplayClaims());
+                        listOfClaims.DisplayClaims();
                         break;
 
                     case 2:     // Take care of next claim
@@ -53,7 +53,8 @@ namespace Komodo_Claims_App
                         break;
 
                     case 3:     // Enter new claim
-                        newClaim = UI.CreateNewClaim();
+                        UI newUI = new UI();
+                        newClaim = newUI.CreateNewClaim();
                         if (newClaim.IsValid)
                         {
                             listOfClaims.AddClaimsToList(newClaim);

@@ -1,9 +1,14 @@
-﻿using System;
+﻿using Komodo_Claims_Repo;
+using System;
+using System.Security.Claims;
 
 namespace Komodo_Claims_App
 {
     class UI
     {
+        public ClaimsRepository _claimsRepo = new ClaimsRepository();
+        public Claims claim = new Claims(); 
+           
         public static string CreateMenuTitle()
         {
             string title = "\n============================================\n" +
@@ -29,26 +34,17 @@ namespace Komodo_Claims_App
             Console.WriteLine(message);
         }
 
-        public static Claim CreateNewClaim(string stringDateOFClaim, string stringDateOfIncident)
+        public Claims CreateNewClaim()
         {
             // Local Variables
 
-            Claim newClaim;
-
-            int id;
-            int typeNumber;
-            string type;
-            string description;
-            Decimal amount;
-            DateTime dateOfIncident;
-            string strDOI;
-            DateTime dateOfClaim;
-            string strDOC;
-
-            Console.WriteLine();
-            id = RequestIntegerFromUser("Enter claim ID: ");
+            Claims newClaim = new Claims();
             
-            typeNumber = RequestIntegerFromUser("Enter claim type (1-Car,2-Home,3-Theft): ");
+            int id = RequestIntegerFromUser("Enter claim ID: ");
+
+            string type;
+
+            int typeNumber = RequestIntegerFromUser("Enter claim type (1-Car,2-Home,3-Theft): ");
             if (typeNumber == 1)
                 type = "Car";
             else if (typeNumber == 2)
@@ -56,16 +52,15 @@ namespace Komodo_Claims_App
             else //Default to Theft
                 type = "Theft";
 
-            description = RequestStringFromUser("Enter claim description: ");
-            amount = RequestDecimalFromUser("Enter claim amount: ");
+            string description = RequestStringFromUser("Enter claim description: ");
+            decimal amount = RequestDecimalFromUser("Enter claim amount: ");
 
-            stringDateOfIncident = RequestStringFromUser("Enter date of incident (exp: 12/1/2020): ");
-            stringDateOFClaim = RequestStringFromUser("Enter date of claim (exp: Wed 12/2/2020): ");
+            string dateOfIncident = RequestStringFromUser("Enter date of incident (exp: 12/1/2020): ");
+            DateTime incidentDate = DateTime.Parse(dateOfIncident);
+            string dateOfClaim = RequestStringFromUser("Enter date of claim (exp: Wed 12/2/2020): ");
+            DateTime claimDate = DateTime.Parse(dateOfClaim);
 
-            dateOfIncident = DateTime.Parse(stringDateOfIncident);
-            dateOfClaim = DateTime.Parse(stringDateOFClaim);
-
-            newClaim = new Claim(id, type, description, amount, dateOfIncident, dateOfClaim );
+            newClaim = new Claims(id, type, description, amount, incidentDate, claimDate);
 
             return newClaim;
         }

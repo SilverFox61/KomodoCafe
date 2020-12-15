@@ -10,7 +10,7 @@ namespace Komodo_Claims_Test
         [TestMethod]
         public void TestClaimGetters()
         {
-            Claim newClaim = new Claim(1, "Car", "Damaged Bumper", 200, 
+            Claims newClaim = new Claims(1, "Car", "Damaged Bumper", 200, 
                 DateTime.Parse("Fri Dec 11, 2020"),
                 DateTime.Parse("Sat Dec 12, 2020"));
 

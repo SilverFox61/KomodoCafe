@@ -6,29 +6,31 @@ using System.Threading.Tasks;
 
 namespace Komodo_Claims_Repo
 {
-    public class Claim
+    public class Claims
     {
         // Class methods
         public int Id { get; set; }
         public string Type { get; set; }
         public string Description { get; set; }
-        public Decimal Amount { get; set; }
+        public decimal Amount { get; set; }
         public DateTime DateOfIncident { get; set; }
         public DateTime DateOfClaim { get; set; }
-        public bool IsValid { get; }
+        public bool IsValid { get; set; }
 
-        public override string ToString()
-        {
-            return string.Format( "{0} {1} {2} {3} {4} {5} {6}", 
-                                  Id, Type, Description, Amount,
-                                  DateOfIncident.ToString("MM/dd/yyyy"), 
-                                  DateOfClaim.ToString("MM/dd/yyyy"), IsValid);
-        }
+        //public override string ToString()
+        //{
+        //    return string.Format( "{0} {1} {2} {3} {4} {5} {6}", 
+        //                          Id, Type, Description, Amount,
+        //                          DateOfIncident.ToString("MM/dd/yyyy"), 
+        //                          DateOfClaim.ToString("MM/dd/yyyy"), IsValid);
+        //}
 
         // Constructors -- set the initial state
 
-        public Claim(int id, string type, string description,
-                        Decimal amount, DateTime dateOfIncident, DateTime dateOfClaim)
+        public Claims() { }
+
+        public Claims(int id, string type, string description,
+                        decimal amount, DateTime dateOfIncident, DateTime dateOfClaim)
         {
             Id = id;
             Type = type;
@@ -36,13 +38,8 @@ namespace Komodo_Claims_Repo
             Amount = amount;
             DateOfIncident = dateOfIncident;
             DateOfClaim = dateOfClaim;
-
+            IsValid = (dateOfClaim - dateOfIncident).TotalDays <= 30;
             // Claim only valid if claim filed within 30 days of incident
-
-            if ((DateOfClaim - DateOfIncident).TotalDays <= 30)
-                IsValid = true;
-            else
-                IsValid = false;
         }
     }
 }
