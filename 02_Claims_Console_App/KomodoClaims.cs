@@ -6,10 +6,10 @@ namespace Komodo_Claims_App
 {
     class KomodoClaims
     {
-        private static string stringFormat;
+       private static string stringFormat;
 
         static void Main()
-        {
+        { 
             // Local Variables
 
             Komodo_Claims_Repo.ClaimsRepository listOfClaims = new Komodo_Claims_Repo.ClaimsRepository();

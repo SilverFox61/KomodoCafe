@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("02_Claims_Console_Repo")]
+[assembly: AssemblyTitle("03_Badges_Console_Repo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("02_Claims_Console_Repo")]
+[assembly: AssemblyProduct("03_Badges_Console_Repo")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bca69985-3117-407d-9aa9-fa33746b899d")]
+[assembly: Guid("ad29ee39-f93b-4498-85b6-7fdf3974ecf7")]
 
 // Version information for an assembly consists of the following four values:
 //

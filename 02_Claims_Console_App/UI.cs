@@ -38,7 +38,7 @@ namespace Komodo_Claims_App
         {
             // Local Variables
 
-            Claims newClaim = new Claims();
+            Claims newClaim;
             
             int id = RequestIntegerFromUser("Enter claim ID: ");
 
