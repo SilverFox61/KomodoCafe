@@ -10,29 +10,33 @@ namespace Komodo_Insurance_Repo
     {
         // Class Variables
 
-        private Dictionary<int, Badge> listOfDoors;
-        
-        public string Badge { get; set; }
+        private Dictionary<int, Badge> listOfBadges;
+        public Dictionary<int, Badge> BadgeList() => listOfBadges;
+
+        public int ID { get; set; }
 
         // Constructor
 
         public BadgesRepository()
         {
-            listOfDoors = new Dictionary<int, Badge>();
+            listOfBadges = new Dictionary<int, Badge>();
         }
 
         // Class Methods
 
-        public void AddMenuItemsToList( int id, Badge badge )
+        public void AddBadge( int id, Badge badge )
         {
-            listOfDoors.Add( id, badge );
+            listOfBadges.Add( id, badge );
         }
 
-        public Dictionary<int,Badge> badgeList() => listOfDoors;
+        //public void DeleteBadge( int id )
+        //{
 
-        public Badge GetMenuItemsBy(int id)
+        //}
+
+        public Badge GetBadgeBy(int id)
         {
-            foreach (KeyValuePair<int,Badge> keyValue in listOfDoors )
+            foreach (KeyValuePair<int,Badge> keyValue in listOfBadges)
             {
                 if (keyValue.Key == id)
                 {
@@ -41,6 +45,26 @@ namespace Komodo_Insurance_Repo
             }
 
             return null;
+        }
+
+        public string DisplayAllBadges()
+        {
+            // Local Variables
+
+            string formattedString;
+
+            // Add in titles
+
+            formattedString = "Badge #  Door Access\n";
+
+            foreach (KeyValuePair<int, Badge> keyValue in listOfBadges)
+            {
+                formattedString += keyValue.Key + "   ";
+
+                formattedString += keyValue.Value.ListDoorsForBadge(); 
+            }
+
+            return formattedString;
         }
     }
 }

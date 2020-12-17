@@ -33,7 +33,7 @@ namespace Komodo_Insurance_App
             Console.WriteLine(message);
         }
 
-        public Badge CreateNewBadge()
+        public static Badge CreateNewBadge()
         {
             // Local Variables
 
@@ -43,6 +43,8 @@ namespace Komodo_Insurance_App
             string door;
 
             id = RequestIntegerFromUser("What is the number on the badge: ");
+
+            Console.WriteLine("ID entered: " + id);
 
             do
             {
@@ -54,15 +56,121 @@ namespace Komodo_Insurance_App
 
             newBadge = new Badge(id, listOfDoors);
 
+            Console.WriteLine("ID after instantiate: " + newBadge.ID);
+
             return newBadge;
         }
+
+        private static void AddDoor( Badge existingBadge )
+        {
+            // Local Variables
+
+            string doorToAdd;
+
+            // Get user input
+
+            doorToAdd = UI.RequestStringFromUser("\nWhich door would you like to add? ");
+
+            // Trim spaces if exist and make lowercase
+
+            doorToAdd = doorToAdd.Trim().ToLower();
+
+            // Add door from the list
+
+            if ( existingBadge.AddDoor(doorToAdd) )
+                UI.DisplayConsoleMessage("Door added.\n");
+        }
+        private static void RemoveDoor(Badge existingBadge)
+        {
+            // Local Variables
+
+            string doorToRemove;
+
+            // Get user input
+
+            doorToRemove = UI.RequestStringFromUser("\nWhich door would you like to remove? ");
+
+            // Trim spaces if exist and make lowercase
+
+            doorToRemove = doorToRemove.Trim().ToLower();
+
+            // Remove door from the list
+
+            if ( existingBadge.RemoveDoor(doorToRemove) )
+               UI.DisplayConsoleMessage("Door removed.\n");
+        }
+
+        public static void RequestDoorChangeFromUser( Badge existingBadge )
+        {
+            // Local Variables
+
+            int menuOption;
+
+            bool validOption = false;         // Assume invalid option
+
+            string prompt = "\nWhat would you like to do?" +
+                            "\n   1. Remove a door" +
+                            "\n   2. Add a door" +
+                            "\n> ";
+            do
+            {
+                // Request type of change to existing doors
+
+                menuOption = UI.RequestIntegerFromUser(prompt);
+
+                switch (menuOption)
+                {
+                    case 1:
+                        UI.RemoveDoor(existingBadge);
+                        validOption = true;
+                        break;
+
+                    case 2:
+                        UI.AddDoor(existingBadge);
+                        validOption = true;
+                        break;
+
+                    default:
+                        UI.DisplayConsoleMessage("Invalid menu option!");
+                        break;
+                }
+
+            } while (!validOption);
+
+            UI.DisplayConsoleMessage(existingBadge.ID + " has acccess to " + existingBadge.ListDoorsForBadge());
+        }
+
+        public static void UpdateBadge( BadgesRepository listOfBadges )
+        {
+            // Local Variables
+
+            Badge existingBadge;
+            int id;
+
+            // Get user badge #
+
+            id = RequestIntegerFromUser("What is the badge number to update? ");
+
+            // Get badge from dictionary
+
+            existingBadge = listOfBadges.GetBadgeBy(id);
+
+            // Display current list of doors for access
+
+            //Console.WriteLine(listOfBadges);
+
+            // Request from user to either remove or add badge
+
+            UI.RequestDoorChangeFromUser( existingBadge );
+        }
+
         public static int RequestIntegerFromUser(string prompt)
         {
             // Local Variables
 
             int userInput;
 
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
             userInput = Convert.ToInt32(Console.ReadLine());
 
             return userInput;
@@ -86,7 +194,7 @@ namespace Komodo_Insurance_App
 
             string userInput;
 
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
             userInput = Console.ReadLine();
 
             return userInput;
@@ -97,7 +205,7 @@ namespace Komodo_Insurance_App
 
             decimal userInput;
 
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
             userInput = Convert.ToDecimal(Console.ReadLine());
 
             return userInput;

@@ -1,19 +1,17 @@
 ﻿using Komodo_Insurance_Repo;
-using System.Linq;
+using System;
 
 namespace Komodo_Insurance_App
 {
     class KomodoInsurance
     {
-        private static string stringFormat;
-
         static void Main()
         {
             // Local Variables
 
             BadgesRepository listOfBadges = new BadgesRepository();
-            string userResponse;
             int menuOption;
+            Badge newBadge;
 
             // Display menu title
 
@@ -23,6 +21,8 @@ namespace Komodo_Insurance_App
 
             UI.DisplayConsoleMessage(UI.CreateMenuOptions());
 
+            // Get menu response from user
+
             do
             {
                 menuOption = UI.RequestIntegerFromUser("\nEnter badges menu option: ");
@@ -30,13 +30,17 @@ namespace Komodo_Insurance_App
                 switch (menuOption)
                 {
                     case 1:     // Add a Badge
-                        
+                        newBadge = UI.CreateNewBadge();
+                        Console.WriteLine("ID: " + newBadge.ID);
+                        listOfBadges.AddBadge(newBadge.ID, newBadge);
                         break;
 
                     case 2:     // Edit a Badge
+                        UI.UpdateBadge(listOfBadges);
                         break;
 
                     case 3:     // List all Badges
+                        UI.DisplayConsoleMessage(listOfBadges.DisplayAllBadges());
                         break;
 
                     case 4:     // Display menu options
