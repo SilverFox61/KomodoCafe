@@ -25,13 +25,12 @@ namespace Komodo_Insurance_App
 
             do
             {
-                menuOption = UI.RequestIntegerFromUser("\nEnter badges menu option: ");
+                menuOption = UI.RequestIntegerFromUser("\nHello Security Admin. What would you like to do? ");
 
                 switch (menuOption)
                 {
                     case 1:     // Add a Badge
                         newBadge = UI.CreateNewBadge();
-                        Console.WriteLine("ID: " + newBadge.ID);
                         listOfBadges.AddBadge(newBadge.ID, newBadge);
                         break;
 
@@ -46,6 +45,13 @@ namespace Komodo_Insurance_App
                     case 4:     // Display menu options
                         UI.DisplayConsoleMessage("");
                         UI.DisplayConsoleMessage(UI.CreateMenuOptions());
+                        break;
+
+                    case 5:     // Exit
+                        break;
+
+                    default:
+                        UI.DisplayConsoleMessage("\nInvalid menu option!");
                         break;
                 }
 

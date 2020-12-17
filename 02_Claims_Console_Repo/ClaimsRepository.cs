@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Komodo_Claims_Repo
 {
@@ -10,42 +7,42 @@ namespace Komodo_Claims_Repo
     {
         // Class Variables
 
-        List<Claim> _listOfClaims = new List<Claim>();
+        List<Claims> _listOfClaims = new List<Claims>();
 
         // Class Methods
 
-        public void AddClaimsToList(Claim claim)
+        public void AddClaimsToList(Claims claim)
         {
             _listOfClaims.Add(claim);
         }
 
         public string CreateFormattedNextClaim()
         {
-            // Local Variables
+            // Local Variable
 
-            Claim claim = null;
+            Claims claim;
 
-            string strFormat = "\nNo valid claims exist!";
+            string stringFormat = "\n No valid claims exist.";
 
-            if ( _listOfClaims.Count >= 1)
+            if (_listOfClaims.Count >= 1)
             {
                 claim = _listOfClaims[0];
 
                 // Format next claim
 
-                strFormat = "\nClaimID: " + claim.Id +
+                stringFormat = "\nClaimID: " + claim.Id +
                             "\nType: " + claim.Type +
                             "\nDescription: " + claim.Description +
                             "\nAmount: " + claim.Amount +
-                            "\nDateOfAccident: " + claim.DateOfIncident +
-                            "\nDateOfClaim: " + claim.DateOfClaim +
+                            "\nDateOfAccident: " + claim.DateOfIncident.ToString("MM/dd/yyyy") +
+                            "\nDateOfClaim: " + claim.DateOfClaim.ToString("MM/dd/yyyy") +
                             "\nIsValid: " + claim.IsValid;
             }
 
-            return strFormat;
+            return stringFormat;
         }
 
-        public Claim GetNextClaim()
+        public Claims GetNextClaim()
         {
             return _listOfClaims[0];
         }
@@ -56,11 +53,11 @@ namespace Komodo_Claims_Repo
         }
 
         //Read
-        public List<Claim> ClaimsList() => _listOfClaims;
+        public List<Claims> ClaimsList() => _listOfClaims;
 
-        public Claim GetClaimsBy(int Id)
+        public Claims GetClaimsBy(int Id)
         {
-            foreach (Claim claim in _listOfClaims)
+            foreach (Claims claim in _listOfClaims)
             {
                 if (claim.Id == Id)
                 {
@@ -71,25 +68,30 @@ namespace Komodo_Claims_Repo
             return null;
         }
 
-        public string DisplayClaims()
+        public void DisplayClaims()
         {
-            // Local Variables
-
-            string strFormat = "";
 
             if (_listOfClaims.Count >= 1)
             {
                 Console.WriteLine("ClaimID Type Description Amount DateofAccident DateOfClaim isValid");
 
-                foreach (Claim claim in _listOfClaims)
+                foreach (Claims claim in _listOfClaims)
                 {
-                    strFormat += claim.ToString() + "\n";
+                    Console.WriteLine($"{claim.Id}\n" +
+                        $"{claim.Type}\n" +
+                        $"{claim.Description}\n" +
+                        $"{claim.Amount}\n" +
+                        $"{claim.DateOfIncident}\n" +
+                        $"{claim.DateOfClaim}\n" +
+                        $"{claim.IsValid}\n");
                 }
+                Console.WriteLine("Press any key to continue");
+                Console.ReadLine();
             }
             else
-                strFormat = "\nNo claims exist!";
-
-            return strFormat;
+                Console.WriteLine("No claims exist.");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
         }
     }
 }

@@ -4,11 +4,7 @@ namespace Komodo_Insurance_Repo
 {
     public class Badge
     {
-        // Class Constants
-
-        private List<string> VALID_DOORS = new List<string>()
-        { "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9"
-        };
+        // Class Variables
 
         private int id;
         private List<string> listOfDoors;
@@ -37,7 +33,6 @@ namespace Komodo_Insurance_Repo
             this.id = id;
             listOfDoors = doors;
         }
-
         public bool AddDoor( string door )
         {
             bool added = false;
@@ -51,14 +46,18 @@ namespace Komodo_Insurance_Repo
             return added;
         }
 
+        public bool Contains( string door )
+        {
+            return listOfDoors.Contains(door);
+        }
+
         public bool RemoveDoor( string door )
         {
             bool removed = false;
 
             if (listOfDoors.Contains(door))
             {
-                removed = true;
-                listOfDoors.Remove(door);
+                removed = listOfDoors.Remove( door );
             }
 
             return removed;
@@ -72,8 +71,10 @@ namespace Komodo_Insurance_Repo
 
             foreach (string door in listOfDoors)
             {
-               formattedString += (door + " ");
+               formattedString += (door + ", ");
             }
+
+            formattedString = formattedString.Substring(0, formattedString.Length - 2);
 
             formattedString += "\n";
 

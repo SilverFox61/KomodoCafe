@@ -42,21 +42,19 @@ namespace Komodo_Insurance_App
             int id;
             string door;
 
-            id = RequestIntegerFromUser("What is the number on the badge: ");
-
-            Console.WriteLine("ID entered: " + id);
+            id = RequestIntegerFromUser("\nWhat is the number on the badge: ");
 
             do
             {
-                door = UI.RequestStringFromUser( "\nList a door that it needs access to: " );
+                door = UI.RequestDoorFromUser( "\nList a door that it needs access to: " );
+
+                door = door.Trim().ToUpper();
 
                 listOfDoors.Add(door);
 
             } while (UI.RequestYesNoFromUser( "\nAny other doors (y/n): ") == "Y");
 
             newBadge = new Badge(id, listOfDoors);
-
-            Console.WriteLine("ID after instantiate: " + newBadge.ID);
 
             return newBadge;
         }
@@ -69,11 +67,11 @@ namespace Komodo_Insurance_App
 
             // Get user input
 
-            doorToAdd = UI.RequestStringFromUser("\nWhich door would you like to add? ");
+            doorToAdd = UI.RequestDoorFromUser("\nWhich door would you like to add? ");
 
             // Trim spaces if exist and make lowercase
 
-            doorToAdd = doorToAdd.Trim().ToLower();
+            doorToAdd = doorToAdd.Trim().ToUpper();
 
             // Add door from the list
 
@@ -88,11 +86,7 @@ namespace Komodo_Insurance_App
 
             // Get user input
 
-            doorToRemove = UI.RequestStringFromUser("\nWhich door would you like to remove? ");
-
-            // Trim spaces if exist and make lowercase
-
-            doorToRemove = doorToRemove.Trim().ToLower();
+            doorToRemove = UI.RequestDoorFromUser("\nWhich door would you like to remove? ");
 
             // Remove door from the list
 
@@ -108,7 +102,7 @@ namespace Komodo_Insurance_App
 
             bool validOption = false;         // Assume invalid option
 
-            string prompt = "\nWhat would you like to do?" +
+            string prompt = "What would you like to do?" +
                             "\n   1. Remove a door" +
                             "\n   2. Add a door" +
                             "\n> ";
@@ -131,7 +125,7 @@ namespace Komodo_Insurance_App
                         break;
 
                     default:
-                        UI.DisplayConsoleMessage("Invalid menu option!");
+                        UI.DisplayConsoleMessage("\nInvalid menu option!");
                         break;
                 }
 
@@ -149,7 +143,7 @@ namespace Komodo_Insurance_App
 
             // Get user badge #
 
-            id = RequestIntegerFromUser("What is the badge number to update? ");
+            id = RequestIntegerFromUser("\nWhat is the badge number to update? ");
 
             // Get badge from dictionary
 
@@ -157,21 +151,63 @@ namespace Komodo_Insurance_App
 
             // Display current list of doors for access
 
-            //Console.WriteLine(listOfBadges);
+            UI.DisplayConsoleMessage( BadgesRepository.DisplayAllValidDoors());
 
             // Request from user to either remove or add badge
 
             UI.RequestDoorChangeFromUser( existingBadge );
         }
 
+        public static string RequestDoorFromUser(string prompt)
+        {
+            // Local Variables
+
+            string userInput;
+            bool validInput = false;  //Assume INVALID input
+
+            do
+            {
+                UI.DisplayConsoleMessage(prompt);
+                userInput = Console.ReadLine();
+
+                userInput = userInput.Trim().ToUpper();
+
+                if (BadgesRepository.VALID_DOORS.Contains(userInput))
+                    validInput = true;
+                else
+                    UI.DisplayConsoleMessage("\nInvalid door! Not in list of valid doors.");
+
+            } while (!validInput);
+
+            return userInput;
+        }
+
         public static int RequestIntegerFromUser(string prompt)
         {
             // Local Variables
 
-            int userInput;
+            string strUserInput;
+            int userInput = 0;
+            bool validInput = false;    // Assume invalid input
 
-            Console.Write(prompt);
-            userInput = Convert.ToInt32(Console.ReadLine());
+            do
+            {
+                Console.Write(prompt);
+
+                strUserInput = Console.ReadLine().Trim();
+
+                if (strUserInput.Length >= 1)
+                {
+                    if (Int32.TryParse(strUserInput, out userInput ))
+                        validInput = true;
+
+                    else
+                        UI.DisplayConsoleMessage("\nInvalid input: Cannot be converted to integer!");
+                }
+                else
+                    UI.DisplayConsoleMessage("\nInvalid input: No characters were entered!");
+
+            } while (!validInput);
 
             return userInput;
         }

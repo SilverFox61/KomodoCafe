@@ -1,3 +1,0 @@
-C:\ElevenFiftyProjects\GoldBadgeProject_Cafe\02_Claims_Console_Repo\obj\Debug\XX.csproj.CoreCompileInputs.cache
-C:\ElevenFiftyProjects\GoldBadgeProject_Cafe\02_Claims_Console_Repo\obj\Debug\02_Claims_Console_Repo.dll
-C:\ElevenFiftyProjects\GoldBadgeProject_Cafe\02_Claims_Console_Repo\obj\Debug\02_Claims_Console_Repo.pdb

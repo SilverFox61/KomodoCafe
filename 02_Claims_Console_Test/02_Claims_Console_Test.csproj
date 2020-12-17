@@ -8,7 +8,7 @@
     <ProjectGuid>{70773333-319F-4F96-A6B2-33184BF7EA66}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_02_Claims_Console_Test</RootNamespace>
+    <RootNamespace>Komodo_Claims_Repo</RootNamespace>
     <AssemblyName>02_Claims_Console_Test</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -56,8 +56,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mark_Library\02_Claims_Console_Repo.csproj">
-      <Project>{BCA69985-3117-407D-9AA9-FA33746B899D}</Project>
+    <ProjectReference Include="..\02_Claims_Console_Repo\02_Claims_Console_Repo.csproj">
+      <Project>{0A227723-36E5-4C42-BA8C-6959CEB38D4E}</Project>
       <Name>02_Claims_Console_Repo</Name>
     </ProjectReference>
   </ItemGroup>

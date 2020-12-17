@@ -1,6 +1,0 @@
-C:\ElevenFiftyProjects\GoldBadgeProject_Cafe\Mark_Library\obj\Debug\02_Claims_Console_Repo.csproj.CoreCompileInputs.cache
-C:\ElevenFiftyProjects\GoldBadgeProject_Cafe\Mark_Library\obj\Debug\02_Claims_Console_Repo.csprojAssemblyReference.cache
-C:\ElevenFiftyProjects\GoldBadgeProject_Cafe\Mark_Library\bin\Debug\02_Claims_Console_Repo.dll
-C:\ElevenFiftyProjects\GoldBadgeProject_Cafe\Mark_Library\bin\Debug\02_Claims_Console_Repo.pdb
-C:\ElevenFiftyProjects\GoldBadgeProject_Cafe\Mark_Library\obj\Debug\02_Claims_Console_Repo.dll
-C:\ElevenFiftyProjects\GoldBadgeProject_Cafe\Mark_Library\obj\Debug\02_Claims_Console_Repo.pdb

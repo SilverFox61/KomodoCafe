@@ -8,7 +8,7 @@
     <ProjectGuid>{D5FA78C5-FDD0-4E33-A785-C30002752218}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_03_Badges_Console_Test</RootNamespace>
+    <RootNamespace>Komodo_Insurance_Test</RootNamespace>
     <AssemblyName>03_Badges_Console_Test</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -49,11 +49,18 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Badge_Test.cs" />
+    <Compile Include="BadgesRepository_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\03_Badges_Console_Repo\03_Badges_Console_Repo.csproj">
+      <Project>{AD29EE39-F93B-4498-85B6-7FDF3974ECF7}</Project>
+      <Name>03_Badges_Console_Repo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

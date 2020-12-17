@@ -6,13 +6,11 @@ namespace Komodo_Claims_App
 {
     class KomodoClaims
     {
-       private static string stringFormat;
-
         static void Main()
         { 
             // Local Variables
 
-            Komodo_Claims_Repo.ClaimsRepository listOfClaims = new Komodo_Claims_Repo.ClaimsRepository();
+            ClaimsRepository listOfClaims = new ClaimsRepository();
             Claims newClaim;
             string userResponse;
             int menuOption;
@@ -32,13 +30,13 @@ namespace Komodo_Claims_App
                 switch (menuOption)
                 {
                     case 1:     // See all claims
-                        listOfClaims.DisplayClaims();
+                        //listOfClaims.DisplayClaims();
                         break;
 
                     case 2:     // Take care of next claim
-                        string strFormat = listOfClaims.CreateFormattedNextClaim();
+                        string stringFormat = listOfClaims.CreateFormattedNextClaim();
 
-                        if (strFormat.Length > 30)
+                        if (stringFormat.Length > 30)
                         {
                             UI.DisplayConsoleMessage(stringFormat);
 
@@ -58,7 +56,6 @@ namespace Komodo_Claims_App
                         if (newClaim.IsValid)
                         {
                             listOfClaims.AddClaimsToList(newClaim);
-
                             UI.DisplayConsoleMessage("\nClaim is valid and added!");
                         }
                         else

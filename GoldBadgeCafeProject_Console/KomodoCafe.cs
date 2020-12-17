@@ -9,15 +9,14 @@ namespace Komodo_Cafe
 {
     class KomodoCafe
     {
-        static void Main( String [] args )
+        static void Main()
         {
             // Local Variables
 
-            MenuRepository menu = null;
-            string prompt = null;
-            string strBuildMenuOptions = null;
-            int buildMenuOption = 0;
-            int menuNumber = 0;
+            MenuRepository menu;
+            string strBuildMenuOptions;
+            int buildMenuOption;
+            int menuNumber;
 
             // Instantiate the menu
 
