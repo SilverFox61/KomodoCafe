@@ -49,11 +49,11 @@ namespace Komodo_Cafe
 
             return userInput;
         }
-        public static Decimal RequestDecimalFromUser(string prompt)
+        public static decimal RequestDecimalFromUser(string prompt)
         {
             // Local Variables
 
-            Decimal userInput = 0m;
+            decimal userInput = 0m;
 
             Console.Write(prompt);
             userInput = Convert.ToDecimal(Console.ReadLine());
@@ -82,15 +82,11 @@ namespace Komodo_Cafe
         }
         public static MenuItem CreateMenuItem()
         {
-            // Local Variables
-
-            MenuItem menuItem = null;
-
             int menuNumber = 0;
             string menuName = null;
             string menuDescription = null;
             string menuIngredients = null;
-            Decimal menuPrice = 0m;
+            decimal menuPrice = 0m;
 
             Console.WriteLine();
             menuNumber = RequestIntegerFromUser("Enter menu #: ");
@@ -99,24 +95,25 @@ namespace Komodo_Cafe
             menuIngredients = RequestStringFromUser("Enter menu ingredients: ");
             menuPrice = RequestDecimalFromUser("Enter menu price: ");
 
-            menuItem = new MenuItem(menuNumber, menuName, menuDescription,
-                                     menuIngredients, menuPrice);
+            // Local Variables
+
+            MenuItem menuItem = new MenuItem(menuNumber, menuName, menuDescription,
+                         menuIngredients, menuPrice);
             return menuItem;
         }
 
         public static void DisplayMenuItem(MenuItem menuItem )
         {
-            // Local Variables
-
-            int menuNumber = 0;
             string menuName = null;
             string menuDescription = null;
             string menuIngredients = null;
-            Decimal menuPrice = 0m;
+            decimal menuPrice = 0m;
+
+            // Local Variables
 
             // Extract menu info
 
-            menuNumber = menuItem.MenuNumber;
+            int menuNumber = menuItem.MenuNumber;
             menuName = menuItem.MealName;
             menuDescription = menuItem.Description;
             menuIngredients = menuItem.Ingredients;
