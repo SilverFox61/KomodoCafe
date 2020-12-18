@@ -25,8 +25,8 @@ namespace Komodo_Cafe
             // Display build menu options
 
             Console.WriteLine(UI.BuildMenuTitle());
-            strBuildMenuOptions = UI.BuildMenuOptions();
-            Console.WriteLine(strBuildMenuOptions);
+            string BuildMenuOptions = UI.BuildMenuOptions();
+            Console.WriteLine(BuildMenuOptions);
 
             do
             {
@@ -58,7 +58,7 @@ namespace Komodo_Cafe
 
                     case 6:     // View build menu options
                         Console.WriteLine(UI.BuildMenuTitle());
-                        Console.WriteLine(strBuildMenuOptions);
+                        Console.WriteLine(BuildMenuOptions);
                         break;
                 }
 

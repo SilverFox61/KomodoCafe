@@ -82,14 +82,13 @@ namespace Komodo_Cafe
         }
         public static MenuItem CreateMenuItem()
         {
-            int menuNumber = 0;
             string menuName = null;
             string menuDescription = null;
             string menuIngredients = null;
             decimal menuPrice = 0m;
 
             Console.WriteLine();
-            menuNumber = RequestIntegerFromUser("Enter menu #: ");
+            int menuNumber = RequestIntegerFromUser("Enter menu #: ");
             menuName = RequestStringFromUser("Enter menu name: ");
             menuDescription = RequestStringFromUser("Enter menu description: ");
             menuIngredients = RequestStringFromUser("Enter menu ingredients: ");

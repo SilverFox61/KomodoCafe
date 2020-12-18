@@ -19,7 +19,7 @@ namespace Komodo_Console_App_Test
 
         public void TestAddingMenuItem()
         { 
-            MenuItem newMenuItem = new MenuItem(1, "Hamburger Meal", "Great!", "Pig part", 5);
+            MenuItem newMenuItem = new MenuItem(1, "Hamburger Meal", "Great!", "Meat", 5);
 
             MenuRepository MenuItemsList = new MenuRepository();
 

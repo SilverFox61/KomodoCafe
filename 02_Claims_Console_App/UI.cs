@@ -86,11 +86,11 @@ namespace Komodo_Claims_App
 
             return userInput;
         }
-        public static Decimal RequestDecimalFromUser(string prompt)
+        public static decimal RequestDecimalFromUser(string prompt)
         {
             // Local Variables
 
-            Decimal userInput;
+            decimal userInput;
 
             Console.WriteLine(prompt);
             userInput = Convert.ToDecimal(Console.ReadLine());
